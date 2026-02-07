@@ -1,0 +1,158 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #242830;
+}
+
+.side-bar {
+  position: fixed;
+  top: 0px;        
+  left: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  z-index: 1000;     
+}
+
+.side-bar .line {
+  width: 1px;
+  height: 120px;
+  background-color: #6b6f76;
+  opacity: 0.6;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.icons a {
+  color: #9b9b9b;
+  font-size: 18px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.icons a:hover {
+  color: #8a56b1;
+  transform: translateY(-3px);
+}
+
+
+body{
+    font-family: 'Space Mono',monospace;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 1rem 6rem;
+  font-size: medium;
+}
+
+.nav{
+    text-align: right;
+    margin-right: 2.5rem;
+}
+
+.nav a{
+    text-decoration: none;
+    list-style-type: none;
+    color: rgb(155, 155, 155);
+    content: "#";
+}
+
+.nav a::before{
+    content: "#";
+    color: #8a56b1;
+}
+
+.nav a:hover{
+    color: white;
+}
+
+.nav a:hover::before{
+    color: #c579ff;
+}
+
+.nav ul li{
+    display: inline-block;
+    padding-inline: 0.5rem;
+}
+
+
+main{
+    display:grid;
+    grid-template-columns: 55% 45%;
+    margin-bottom: 4rem;
+}
+
+.text{
+    padding: 5rem 6rem;
+}
+
+.profile{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    margin-top: 3rem;
+    margin-left: 5rem;
+    box-shadow: 0 0px 30px rgba(255, 255, 255,0.6);
+}
+
+
+
+.upper_txt{
+    color: white;
+    font-size:x-large;
+    margin-bottom: 2rem;
+}
+
+.purple{
+    color:#c579ff;
+}
+
+.lower_txt{
+    color: rgb(181, 181, 181);
+}
+
+
+.projects {
+  margin: 0 6rem;
+}
+
+.projects-header {
+  display: flex;
+  align-items: center;
+}
+
+.project_title {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.project_title::after {
+  content: "";
+  width: 400px;
+  height: 1.5px;
+  background-color: #c579ff;
+  opacity: 0.8;
+}
+
+.viewall {
+  margin-left: auto;     
+  text-decoration: none;
+  color: rgb(181, 181, 181);
+  font-size: 0.8rem;
+}
+
+.viewall:hover {
+  color: white;
+}
