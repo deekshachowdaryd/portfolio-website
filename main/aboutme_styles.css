@@ -1,0 +1,101 @@
+/* ---------- Reset ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #242830;
+    font-family: 'Space Mono', monospace;
+    overflow-x: hidden;
+}
+
+/* ---------- Sidebar ---------- */
+
+.side-bar {
+    position: absolute;
+    top: 0;
+    left: 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    z-index: 1000;
+}
+
+.side-bar .line {
+    width: 1px;
+    height: 120px;
+    background-color: #6b6f76;
+    opacity: 0.6;
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.icons a {
+    color: #9b9b9b;
+    font-size: 18px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.icons a:hover {
+    color: #8a56b1;
+    transform: translateY(-3px);
+}
+
+/* ---------- Header ---------- */
+
+.header {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 6rem;
+}
+
+.nav {
+    text-align: right;
+    margin-right: 2.5rem;
+}
+
+.nav ul li {
+    display: inline-block;
+    padding-inline: 0.5rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: rgb(155, 155, 155);
+    position: relative;
+
+    transition: color 0.25s ease;
+}
+
+
+.nav a::before {
+    content: "#";
+    color: #8a56b1;
+    margin-right: 2px;
+
+    transition: color 0.25s ease;
+}
+
+.nav a:hover {
+    color: white;
+}
+
+.nav a:hover::before {
+    color: #c579ff;
+}
+
+.purple {
+    color: #c579ff;
+}

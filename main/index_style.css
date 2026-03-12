@@ -100,64 +100,54 @@ body {
 /* ---------- Main / Hero ---------- */
 
 main {
-    min-height: 50vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 0 2rem;
+    margin-left: 80px;
 }
 
+/* Text container */
+.text {
+    max-width: 800px;
+}
 
+/* Name */
 .name {
-    font-size: 2.5rem;
+    font-size: clamp(3rem, 6vw, 4.5rem);
     font-weight: 700;
     color: white;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
 }
 
-
-.text {
-    padding: 2rem;
-    max-width: 700px;   /* keeps lines readable */
-}
-
-
+/* Main headline */
 .upper_txt {
-    font-size: 1.4rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
     color: white;
 }
 
+/* Sub text */
 .lower_txt {
+    font-size: 1.1rem;
     color: rgb(181, 181, 181);
 }
 
-
+/* Purple highlight */
 .purple {
     color: #c579ff;
 }
 
-.pfp-wrapper {
-    display: flex;
-    align-items: flex-start;
-}
-
-.profile {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    border-radius: 50%;
-    margin-top: 3rem;
-    margin-left: 5rem;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
-}
 
 /* ---------- Projects ---------- */
 
 .projects {
     margin: 0 6rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 .projects-header {
@@ -196,6 +186,73 @@ main {
 .viewall:hover {
     color: white;
 }
+
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    border: 1.5px solid #3a3f4b;
+    background-color: #242830;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: #c579ff;
+}
+
+
+.project-card__preview {
+    width: 100%;
+    height: 170px;
+    overflow: hidden;
+}
+
+.project-card__preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom: 1px solid #3a3f4b;
+}
+
+
+.project-card__content {
+    padding: 1rem;
+}
+
+.project-card__title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-card__desc {
+    font-size: 0.9rem;
+    color: #b5b5b5;
+}
+
+
+.project-card__stack {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+    border-top: 1px solid #3a3f4b;
+    color: #b5b5b5;
+}
+
+
+
+.project-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
 
 /* ---------- Tablet ---------- */
 
@@ -271,19 +328,18 @@ main {
 }
 
 
-/* Project Cards */
 
 .project-cards {
   display: flex;
   gap: 1.5rem;
   justify-content: flex-start;
-  flex-wrap: wrap;              /* important */
+  flex-wrap: wrap;              
   margin-top: 2rem;
 }
 
 .project-card {
-  flex: 1 1 300px;              /* allows 3 cards per row */
-  max-width: 31%;               /* keeps all 3 in screen */
+  flex: 1 1 300px;              
+  max-width: 31%;               
   border: 1.5px solid #3a3f4b;
   color: white;
   background-color: #242830;
@@ -291,14 +347,14 @@ main {
   flex-direction: column;
 }
 
-/* Image container */
+
 .project-card__preview {
   width: 100%;
   height: 160px;
   overflow: hidden;
 }
 
-/* Image itself */
+
 .project-card__preview img {
   width: 100%;
   height: 100%;
@@ -306,7 +362,7 @@ main {
   border-bottom: 1px solid #3a3f4b;;
 }
 
-/* Content spacing */
+
 .project-card__content {
   padding: 1rem;
 }
@@ -321,32 +377,12 @@ main {
   color: rgb(181, 181, 181);
 }
 
-/* Tech strip */
+
 .project-card__stack {
   padding: 0.6rem 1rem;
   font-size: 0.75rem;
   border-top: 1px solid #3a3f4b;
   color: rgb(181, 181, 181);
-}
-
-/* Actions */
-.project-card__actions {
-  padding: 1rem;
-  margin-top: auto;
-}
-
-.btn--primary {
-  text-decoration: none;
-  color: #c579ff;
-  border: 1px solid #c579ff;
-  padding: 0.4rem 0.8rem;
-  font-size: 0.75rem;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.btn--primary:hover {
-  background-color: #c579ff;
-  color: #242830;
 }
 
 @media (max-width: 768px) {
@@ -360,4 +396,60 @@ main {
   .project-card {
     max-width: 100%;
   }
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    margin-top: 5rem;
+    padding: 2rem 6rem;
+    background-color: #242830;
+    position: relative; 
+}
+
+
+.footer-name {
+    text-align: center;
+    color: #b5b5b5;
+    font-size: 0.9rem;
+}
+
+
+.footer-socials {
+    position: absolute;
+    right: 6rem;          
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footer-socials a {
+    color: #9b9b9b;
+    margin-left: 1rem;
+    font-size: 18px;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footer-socials a:hover {
+    color: #c579ff;
+    transform: translateY(-3px);
+}
+
+/* ---------- Mobile Fix ---------- */
+
+@media (max-width: 768px) {
+
+    .footer {
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .footer-socials {
+        position: static;
+        transform: none;
+        margin-top: 1rem;
+    }
+
+    .footer-socials a {
+        margin: 0 0.6rem;
+    }
 }
