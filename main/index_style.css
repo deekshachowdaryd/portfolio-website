@@ -345,6 +345,7 @@ main {
   background-color: #242830;
   display: flex;
   flex-direction: column;
+  border-radius: 10%;
 }
 
 
@@ -352,6 +353,7 @@ main {
   width: 100%;
   height: 160px;
   overflow: hidden;
+  border-radius: 17%;
 }
 
 
@@ -452,4 +454,99 @@ main {
     .footer-socials a {
         margin: 0 0.6rem;
     }
+}
+
+
+/* ---------- Project Detail Page ---------- */
+
+.project-detail {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    color: white;
+}
+
+/* Back button */
+.project-detail a {
+    text-decoration: none;
+    color: #c579ff;
+    font-size: 0.9rem;
+    transition: color 0.25s ease;
+}
+
+.project-detail a:hover {
+    color: #ffffff;
+}
+
+/* Title */
+.project-detail h1 {
+    font-size: 2.5rem;
+    margin: 2rem 0 1rem 0;
+}
+
+/* Section headings */
+.project-detail h2 {
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    color: #c579ff;
+}
+
+/* Paragraphs */
+.project-detail p {
+    color: #b5b5b5;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Image */
+.project-detail img {
+    width: 100%;
+    margin: 1.5rem 0;
+    border: 1px solid #3a3f4b;
+}
+
+/* List */
+.project-detail ul {
+    margin-left: 1.2rem;
+    color: #b5b5b5;
+}
+
+.project-detail li {
+    margin-bottom: 0.5rem;
+}
+
+/* Buttons container */
+.project-links {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Buttons */
+.project-links a {
+    border: 1px solid #c579ff;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    color: #c579ff;
+    transition: all 0.25s ease;
+}
+
+.project-links a:hover {
+    background-color: #c579ff;
+    color: #242830;
+}
+
+/* Back button specific */
+.back-btn {
+    text-decoration: none;   /* removes underline */
+    color: #c579ff;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    transition: color 0.25s ease;
+}
+
+.back-btn:hover {
+    color: #ffffff;
 }

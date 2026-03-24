@@ -175,3 +175,100 @@ body {
         margin: 0 0.6rem;
     }
 }
+
+
+
+/* Page layout */
+body {
+    background-color: #242830;
+    font-family: 'Space Mono', monospace;
+    color: white;
+    padding: 3rem 6rem;
+}
+
+/* Titles */
+.page-title {
+    font-size: 2rem;
+}
+
+.page-title span {
+    color: #c579ff;
+}
+
+.subtitle {
+    color: #aaa;
+    margin-bottom: 2rem;
+}
+
+/* Section title */
+.section-title {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.section-title span {
+    color: #c579ff;
+}
+
+/* Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Card */
+.project-box {
+    border: 1px solid #3a3f4b;
+    padding: 1rem;
+    transition: 0.25s;
+}
+
+.project-box:hover {
+    border-color: #c579ff;
+    transform: translateY(-5px);
+}
+
+/* Small cards */
+.project-box.small {
+    font-size: 0.9rem;
+}
+
+/* Tags */
+.tags {
+    font-size: 0.7rem;
+    color: #aaa;
+    margin-bottom: 0.5rem;
+}
+
+/* Title */
+.project-box h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* Description */
+.project-box p {
+    color: #bbb;
+    font-size: 0.85rem;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.buttons a {
+    border: 1px solid #c579ff;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    text-decoration: none;
+    color: #c579ff;
+    transition: 0.25s;
+}
+
+.buttons a:hover {
+    background-color: #c579ff;
+    color: #242830;
+}

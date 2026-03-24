@@ -10,55 +10,24 @@ body {
     background-color: #242830;
     font-family: 'Space Mono', monospace;
     overflow-x: hidden;
+    color: white;
 }
 
-/* ---------- Sidebar ---------- */
 
-.side-bar {
-    position: absolute;
-    top: 0;
-    left: 40px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
 
-    z-index: 1000;
-}
-
-.side-bar .line {
-    width: 1px;
-    height: 120px;
-    background-color: #6b6f76;
-    opacity: 0.6;
-}
-
-.icons {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.icons a {
-    color: #9b9b9b;
-    font-size: 18px;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.icons a:hover {
-    color: #8a56b1;
-    transform: translateY(-3px);
-}
 
 /* ---------- Header ---------- */
 
 .header {
     position: sticky;
+    top: 0;                       /* FIXED */
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 6rem;
+    background-color: #242830;    /* prevents overlap */
+    z-index: 999;
 }
 
 .nav {
@@ -73,19 +42,15 @@ body {
 
 .nav a {
     text-decoration: none;
-    color: rgb(155, 155, 155);
+    color: #9b9b9b;
     position: relative;
-
-    transition: color 0.25s ease;
+    transition: 0.25s;
 }
-
 
 .nav a::before {
     content: "#";
     color: #8a56b1;
     margin-right: 2px;
-
-    transition: color 0.25s ease;
 }
 
 .nav a:hover {
@@ -96,6 +61,210 @@ body {
     color: #c579ff;
 }
 
-.purple {
+
+/* ---------- Global Layout Fix ---------- */
+
+/* pushes content away from sidebar */
+.about,
+.skills,
+.fun-facts {
+    margin-left: 80px;
+}
+
+
+/* ---------- About Section ---------- */
+
+.about {
+    padding: 3rem 6rem;
+}
+
+.page-title {
+    font-size: 2rem;
+}
+
+.page-title span {
     color: #c579ff;
+}
+
+.subtitle {
+    color: #8f8f8f;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+
+.about-text {
+    max-width: 520px;
+}
+
+.about-text p {
+    margin-bottom: 1.2rem;
+    color: #b5b5b5;
+    line-height: 1.7;
+    font-size: 0.9rem;
+}
+
+.about-image img {
+    width: 260px;
+    border: 1px solid #3a3f4b;
+    padding: 5px;
+}
+
+
+/* ---------- Section Titles ---------- */
+
+.section-title {
+    margin: 3rem 6rem 1.5rem;
+    font-size: 1.2rem;
+}
+
+.section-title span {
+    color: #c579ff;
+}
+
+
+/* ---------- Skills ---------- */
+
+.skills {
+    padding: 0 6rem;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-box {
+    border: 1px solid #3a3f4b;
+    padding: 1rem;
+    min-width: 180px;
+    transition: 0.25s;
+}
+
+.skill-box:hover {
+    border-color: #c579ff;
+    transform: translateY(-3px);   /* added subtle lift */
+}
+
+.skill-box h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-box p {
+    font-size: 0.75rem;
+    color: #b5b5b5;
+    line-height: 1.5;
+}
+
+
+/* ---------- Fun Facts ---------- */
+
+.fun-facts {
+    padding: 0 6rem 3rem;
+}
+
+.facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+
+.facts span {
+    border: 1px solid #3a3f4b;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.7rem;
+    color: #b5b5b5;
+    transition: 0.25s;
+}
+
+.facts span:hover {
+    border-color: #c579ff;
+    color: #ffffff;
+    transform: translateY(-2px);   /* added effect */
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+
+    .side-bar {
+        display: none;   /* hide sidebar on mobile */
+    }
+
+    .about,
+    .skills,
+    .fun-facts {
+        margin-left: 0;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image img {
+        width: 200px;
+    }
+
+    .section-title {
+        margin: 2rem;
+    }
+
+    .skills,
+    .fun-facts {
+        padding: 0 2rem;
+    }
+
+    .about {
+        padding: 2rem;
+    }
+
+    .header {
+        padding: 1rem 2rem;
+    }
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    margin-top: 5rem;
+    padding: 2rem 6rem;
+    background-color: #242830;
+    position: relative; 
+}
+
+
+.footer-name {
+    text-align: center;
+    color: #b5b5b5;
+    font-size: 0.9rem;
+}
+
+
+.footer-socials {
+    position: absolute;
+    right: 6rem;          
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footer-socials a {
+    color: #9b9b9b;
+    margin-left: 1rem;
+    font-size: 18px;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footer-socials a:hover {
+    color: #c579ff;
+    transform: translateY(-3px);
 }
