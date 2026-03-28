@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-
 <body>
+    <canvas id="particleCanvas"></canvas>
     <!-- Header -->
     <header class="header">
         <p class="logo">.</p>
@@ -25,100 +25,70 @@
     </header>
 
     <section class="about">
+        <h1 class="page-title reveal"><span>/</span>about-me</h1>
+        <p class="subtitle reveal">who am i?</p>
 
-    <h1 class="page-title"><span>/</span>about-me</h1>
-    <p class="subtitle">who am i?</p>
-
-    <div class="about-container">
-
-        <!-- LEFT TEXT -->
-        <div class="about-text">
-
-            <p>Hello, I’m Deeksha!</p>
-
-            <p>
-                I’m an aspiring full-stack developer with a strong interest in building
-                scalable and clean web applications.
-            </p>
-
-            <p>
-                I have experience with Python, JavaScript, and modern web technologies
-                like Node.js, Express, and React. I enjoy working on projects that
-                combine functionality with good UI design.
-            </p>
-
-            <p>
-                I’m always learning and exploring new technologies, especially in
-                backend systems and API integration.
-            </p>
-
+        <div class="about-container">
+            <div class="about-text reveal">
+                <p>Hello, I’m Deeksha!</p>
+                <p>I’m an aspiring full-stack developer who enjoys building scalable and clean web applications (and occasionally breaking them before fixing them better).</p>
+                <p>I have experience with Python, JavaScript, and modern web technologies like Node.js, Express, and React.</p>
+                <p>I’m always learning and exploring new technologies—especially in backend systems and API integration—usually by diving in first and figuring things out along the way.</p>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <section class="skills">
+        <h2 class="section-title reveal"><span>#</span>skills</h2>
 
-</section>
+        <div class="skills-grid">
+            <div class="skill-box reveal">
+                <h3>Languages</h3>
+                <p>Python JavaScript C/C++</p>
+            </div>
 
+            <div class="skill-box reveal">
+                <h3>Frontend</h3>
+                <p>HTML CSS JavaScript React</p>
+            </div>
 
-<!-- SKILLS -->
-<section class="skills">
+            <div class="skill-box reveal">
+                <h3>Backend</h3>
+                <p>Node.js Express</p>
+            </div>
 
-    <h2 class="section-title"><span>#</span>skills</h2>
+            <div class="skill-box reveal">
+                <h3>Databases</h3>
+                <p>MySQL MongoDB</p>
+            </div>
 
-    <div class="skills-grid">
-
-        <div class="skill-box">
-            <h3>Languages</h3>
-            <p>Python JavaScript C/C++</p>
+            <div class="skill-box reveal">
+                <h3>Tools</h3>
+                <p>Git Linux VSCode</p>
+            </div>
         </div>
+    </section>
 
-        <div class="skill-box">
-            <h3>Frontend</h3>
-            <p>HTML CSS React</p>
+    <section class="fun-facts">
+        <h2 class="section-title reveal"><span>#</span>my-fun-facts</h2>
+        <div class="facts reveal">
+            <span>I enjoy badminton</span>
+            <span>I like to read</span>
+            <span>I like Formula 1</span>
+            <span>I enjoy learning new tech</span>
         </div>
+    </section>
 
-        <div class="skill-box">
-            <h3>Backend</h3>
-            <p>Node.js Express</p>
-        </div>
-
-        <div class="skill-box">
-            <h3>Databases</h3>
-            <p>MySQL MongoDB</p>
-        </div>
-
-        <div class="skill-box">
-            <h3>Tools</h3>
-            <p>Git Linux VS Code</p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- FUN FACTS -->
-<section class="fun-facts">
-
-    <h2 class="section-title"><span>#</span>my-fun-facts</h2>
-
-    <div class="facts">
-        <span>I enjoy badminton</span>
-        <span>I like to read</span>
-        <span>I enjoy learning new tech</span>
-    </div>
-
-</section>
-
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <p class="footer-name">© 2026 Deeksha Chowdary</p>
-
             <div class="footer-socials">
                 <a href="#"><i class="fa-brands fa-github"></i></a>
                 <a href="#"><i class="fa-brands fa-linkedin"></i></a>
             </div>
         </div>
     </footer>
+
+    <script src="index..js"></script>
 </body>
+</html>

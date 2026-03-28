@@ -2,39 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Projects</title>
+    <title>Projects | Deeksha Chowdary</title>
 
     <link rel="stylesheet" href="projects_styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-</head>
+    </head>
 
 <body>
+    <canvas id="particleCanvas"></canvas>
+    <!-- Header -->
+    <header class="header">
+        <p class="logo">.</p>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="projects.html">projects</a></li>
+                <li><a href="aboutme.html">about me</a></li>
+                <li><a href="#">resume</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <section class="projects-container">
 
-        <!-- Title -->
-        <h1 class="page-title"><span>/</span>projects</h1>
-        <p class="subtitle">List of my projects</p>
+        <h1 class="page-title reveal"><span>/</span>projects</h1>
+        <p class="subtitle reveal">List of my projects</p>
 
-        <!-- COMPLETE PROJECTS -->
-        <h2 class="section-title"><span>#</span>complete-projects</h2>
+        <h2 class="section-title reveal"><span>#</span>complete-projects</h2>
 
         <div class="projects-grid">
 
-            <!-- Cloud -->
-            <div class="project-box">
+            <div class="project-box reveal">
                 <p class="tags">React Node.js MongoDB</p>
                 <h3>Cloud Service</h3>
                 <p>Full-stack image upload system with API integration.</p>
 
                 <div class="buttons">
-                    <a href="project-cloud.html">View</a>
+                    <a href="cloud_service_project.html">View</a>
                     <a href="https://github.com/deekshachowdaryd/cloud-service-project" target="_blank">GitHub</a>
                 </div>
             </div>
 
-            <!-- F1 -->
-            <div class="project-box">
+            <div class="project-box reveal">
                 <p class="tags">Python ML</p>
                 <h3>F1 Predictor</h3>
                 <p>Predicts race results using historical F1 data.</p>
@@ -45,20 +54,18 @@
                 </div>
             </div>
 
-            <!-- Portfolio -->
-            <div class="project-box">
+            <div class="project-box reveal">
                 <p class="tags">HTML CSS</p>
                 <h3>Portfolio</h3>
                 <p>Responsive personal developer portfolio.</p>
 
                 <div class="buttons">
-                    <a href="project-portfolio.html">View</a>
+                    <a href="project-protfolio.html">View</a>
                     <a href="https://github.com/deekshachowdaryd/portfolio-website" target="_blank">GitHub</a>
                 </div>
             </div>
 
-            <!-- Pharmacy -->
-            <div class="project-box">
+            <div class="project-box reveal">
                 <p class="tags">Python Tkinter MySQL</p>
                 <h3>Pharmacy DBMS</h3>
                 <p>Desktop system for managing pharmacy records.</p>
@@ -70,33 +77,14 @@
             </div>
 
         </div>
-
-        <!-- SMALL PROJECTS
-        <h2 class="section-title"><span>#</span>small-projects</h2>
-
-        <div class="projects-grid">
-
-            <div class="project-box small">
-                <p class="tags">Python</p>
-                <h3>Password Tool</h3>
-                <p>Basic password brute force simulation project.</p>
-                <div class="buttons">
-                    <a href="#">GitHub</a>
-                </div>
-            </div>
-
-            <div class="project-box small">
-                <p class="tags">Pygame</p>
-                <h3>Mini Game</h3>
-                <p>Simple game built using Python and Pygame.</p>
-                <div class="buttons">
-                    <a href="#">GitHub</a>
-                </div>
-            </div>
-
-        </div> -->
-
     </section>
 
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-name">© 2026 Deeksha Chowdary</p>
+        </div>
+    </footer>
+
+    <script src="index..js"></script> 
 </body>
 </html>

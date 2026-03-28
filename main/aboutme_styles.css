@@ -1,33 +1,82 @@
-/* ---------- Reset ---------- */
-
+/* ---------- Reset & Variables ---------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+*, *::before, *::after {
+    cursor: none !important;
+}
+
+:root {
+    --mouse-x: -100px;
+    --mouse-y: -100px;
+    --purple: #c579ff;
+    --dark-bg: #0f0f0f;
+    --text-main: #ffffff; 
+    --text-dim: #b5b5b5; 
+}
+
+/* --- The Background & Glow --- */
+:root {
+    --mouse-x: -100px;
+    --mouse-y: -100px;
+}
+
 body {
-    background-color: #242830;
+    margin: 0;
+    background-color: #0f0f0f;
     font-family: 'Space Mono', monospace;
-    overflow-x: hidden;
     color: white;
+    overflow-x: hidden;
+
+    background-image: radial-gradient(
+        600px circle at var(--mouse-x) var(--mouse-y), 
+        rgba(171, 146, 221, 0.15), 
+        transparent 80%
+    );
+    background-attachment: fixed;
+}
+
+/* --- The Particle Canvas --- */
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Pushes particles behind your text */
+    pointer-events: none; /* Allows clicks to pass through to buttons */
+}
+
+/* --- The Custom Dot --- */
+.custom-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #ab92dd;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 
-
-
-
-/* ---------- Header ---------- */
+.dot-active {
+    width: 10px; height: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px var(--purple);
+}
 
 .header {
     position: sticky;
-    top: 0;                       /* FIXED */
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 6rem;
-    background-color: #242830;    /* prevents overlap */
-    z-index: 999;
 }
 
 .nav {
@@ -42,16 +91,21 @@ body {
 
 .nav a {
     text-decoration: none;
-    color: #9b9b9b;
+    color: rgb(155, 155, 155);
     position: relative;
-    transition: 0.25s;
+
+    transition: color 0.25s ease;
 }
+
 
 .nav a::before {
     content: "#";
     color: #8a56b1;
     margin-right: 2px;
+
+    transition: color 0.25s ease;
 }
+
 
 .nav a:hover {
     color: white;
@@ -62,183 +116,105 @@ body {
 }
 
 
-/* ---------- Global Layout Fix ---------- */
-
-/* pushes content away from sidebar */
-.about,
-.skills,
-.fun-facts {
-    margin-left: 80px;
+/* ---------- Reveal Animation ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: all 0.7s ease-out;
 }
 
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-/* ---------- About Section ---------- */
-
+/* ---------- About Me ---------- */
 .about {
-    padding: 3rem 6rem;
+    padding: 4rem 6rem;
+    margin-left: 80px; /* Space for your sidebar if you use it */
 }
 
 .page-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    color: var(--text-main);
 }
 
-.page-title span {
-    color: #c579ff;
+.page-title span, .section-title span {
+    color: var(--purple);
 }
 
 .subtitle {
     color: #8f8f8f;
     font-size: 0.9rem;
-    margin-bottom: 2rem;
-}
-
-.about-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4rem;
-}
-
-.about-text {
-    max-width: 520px;
+    margin-bottom: 2.5rem;
 }
 
 .about-text p {
-    margin-bottom: 1.2rem;
-    color: #b5b5b5;
-    line-height: 1.7;
-    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dim);
+    font-size: 1rem;
+    max-width: 700px;
 }
 
-.about-image img {
-    width: 260px;
-    border: 1px solid #3a3f4b;
-    padding: 5px;
-}
-
-
-/* ---------- Section Titles ---------- */
-
-.section-title {
-    margin: 3rem 6rem 1.5rem;
-    font-size: 1.2rem;
-}
-
-.section-title span {
-    color: #c579ff;
-}
-
-
-/* ---------- Skills ---------- */
-
+/* ---------- Skills Grid ---------- */
 .skills {
     padding: 0 6rem;
+    margin-left: 80px;
 }
 
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .skill-box {
     border: 1px solid #3a3f4b;
-    padding: 1rem;
-    min-width: 180px;
-    transition: 0.25s;
+    padding: 1.2rem;
+    min-width: 200px;
+    background: rgba(36, 40, 48, 0.2);
+    transition: 0.3s ease;
 }
 
-.skill-box:hover {
-    border-color: #c579ff;
-    transform: translateY(-3px);   /* added subtle lift */
-}
 
 .skill-box h3 {
-    font-size: 0.9rem;
+    color: white;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
 }
 
 .skill-box p {
-    font-size: 0.75rem;
-    color: #b5b5b5;
-    line-height: 1.5;
+    color: var(--text-dim);
+    font-size: 0.85rem;
 }
 
-
 /* ---------- Fun Facts ---------- */
-
 .fun-facts {
-    padding: 0 6rem 3rem;
+    padding: 4rem 6rem;
+    margin-left: 80px;
 }
 
 .facts {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.7rem;
+    gap: 1rem;
 }
 
 .facts span {
     border: 1px solid #3a3f4b;
-    padding: 0.35rem 0.6rem;
-    font-size: 0.7rem;
-    color: #b5b5b5;
-    transition: 0.25s;
-}
-
-.facts span:hover {
-    border-color: #c579ff;
-    color: #ffffff;
-    transform: translateY(-2px);   /* added effect */
+    padding: 0.5rem 1rem;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    transition: 0.3s;
 }
 
 
-/* ---------- Responsive ---------- */
-
-@media (max-width: 900px) {
-
-    .side-bar {
-        display: none;   /* hide sidebar on mobile */
-    }
-
-    .about,
-    .skills,
-    .fun-facts {
-        margin-left: 0;
-    }
-
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about-image img {
-        width: 200px;
-    }
-
-    .section-title {
-        margin: 2rem;
-    }
-
-    .skills,
-    .fun-facts {
-        padding: 0 2rem;
-    }
-
-    .about {
-        padding: 2rem;
-    }
-
-    .header {
-        padding: 1rem 2rem;
-    }
-}
 
 /* ---------- Footer ---------- */
-
 .footer {
     margin-top: 5rem;
     padding: 2rem 6rem;
-    background-color: #242830;
+    background-color: transparent; 
     position: relative; 
 }
 

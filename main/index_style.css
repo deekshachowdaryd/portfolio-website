@@ -1,15 +1,66 @@
 /* ---------- Reset ---------- */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* --- The Background & Glow --- */
+:root {
+    --mouse-x: -100px;
+    --mouse-y: -100px;
+}
+
 body {
-    background-color: #242830;
+    margin: 0;
+    background-color: #0f0f0f;
     font-family: 'Space Mono', monospace;
+    color: white;
     overflow-x: hidden;
+
+    background-image: radial-gradient(
+        600px circle at var(--mouse-x) var(--mouse-y), 
+        rgba(171, 146, 221, 0.15), 
+        transparent 80%
+    );
+    background-attachment: fixed;
+}
+
+/* --- The Particle Canvas --- */
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+/* --- The Custom Dot --- */
+.custom-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #ab92dd;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.dot-active {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px #ab92dd;
+}
+
+
+h1, p, a, li, span {
+    font-family: 'Space Mono', monospace !important;
 }
 
 /* ---------- Sidebar ---------- */
@@ -405,7 +456,7 @@ main {
 .footer {
     margin-top: 5rem;
     padding: 2rem 6rem;
-    background-color: #242830;
+    background-color: transparent !important; 
     position: relative; 
 }
 
@@ -550,3 +601,64 @@ main {
 .back-btn:hover {
     color: #ffffff;
 }
+
+
+
+@media (pointer: fine) {
+    body {
+        cursor: none;
+    }
+    a, button, .project-card {
+        cursor: none;
+    }
+}
+
+.cursor-dot, .cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    transition: transform 0.2s ease-out, background-color 0.2s ease;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ab92dd; /* Matching your purple theme */
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ab92dd;
+}
+
+
+@media (max-width: 768px) {
+    .cursor-dot, .cursor-outline {
+        display: none;
+    }
+    body {
+        cursor: auto;
+    }
+}
+
+/* --- Scroll Reveal Styles --- */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Adjusted for repeat */
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.project-card:nth-child(2) { transition-delay: 0.1s; }
+.project-card:nth-child(3) { transition-delay: 0.2s; }
