@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Deeksha Chowdary</title>
@@ -10,6 +11,7 @@
 </head>
 
 <body>
+    <div id="page-transition-overlay"></div>
     <canvas id="particleCanvas"></canvas>
     <!-- Header -->
     <header class="header">
@@ -19,7 +21,7 @@
                 <li><a href="index.html">home</a></li>
                 <li><a href="projects.html">projects</a></li>
                 <li><a href="aboutme.html">about me</a></li>
-                <li><a href="#">resume</a></li>
+                <li><a href="resume.html">resume</a></li>
             </ul>
         </nav>
     </header>
@@ -29,11 +31,25 @@
         <p class="subtitle reveal">who am i?</p>
 
         <div class="about-container">
+            <div class="about-card reveal">
+                <div class="about-card-header">
+                    <span class="purple"><i class="fa-solid fa-user-gear"></i> Profile</span> Hub
+                </div>
+                <div class="about-card-content">
+                    <p><strong>Name:</strong> Deeksha Chowdary</p>
+                    <p><strong>Location:</strong> Bangalore, India</p>
+                    <p><strong>Status:</strong> Active Student & Dev</p>
+                    <p><strong>Focus:</strong> Full-Stack & ML</p>
+                </div>
+            </div>
             <div class="about-text reveal">
                 <p>Hello, I’m Deeksha!</p>
-                <p>I’m an aspiring full-stack developer who enjoys building scalable and clean web applications (and occasionally breaking them before fixing them better).</p>
-                <p>I have experience with Python, JavaScript, and modern web technologies like Node.js, Express, and React.</p>
-                <p>I’m always learning and exploring new technologies—especially in backend systems and API integration—usually by diving in first and figuring things out along the way.</p>
+                <p>I’m an aspiring developer who enjoys building scalable and clean web applications (and occasionally
+                    breaking them before fixing them better).</p>
+                <p>I have experience with Python, JavaScript, and modern web technologies like Node.js, Express, and
+                    React.</p>
+                <p>I’m always learning and exploring new technologies—especially in backend systems and API
+                    integration—usually by diving in first and figuring things out along the way.</p>
             </div>
         </div>
     </section>
@@ -43,28 +59,47 @@
 
         <div class="skills-grid">
             <div class="skill-box reveal">
-                <h3>Languages</h3>
-                <p>Python JavaScript C/C++</p>
+                <h3><i class="fa-solid fa-code"></i> Languages</h3>
+                <div class="skill-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">C / C++</span>
+                </div>
             </div>
 
             <div class="skill-box reveal">
-                <h3>Frontend</h3>
-                <p>HTML CSS JavaScript React</p>
+                <h3><i class="fa-solid fa-laptop-code"></i> Frontend</h3>
+                <div class="skill-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">React</span>
+                </div>
             </div>
 
             <div class="skill-box reveal">
-                <h3>Backend</h3>
-                <p>Node.js Express</p>
+                <h3><i class="fa-solid fa-server"></i> Backend</h3>
+                <div class="skill-tags">
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Express</span>
+                </div>
             </div>
 
             <div class="skill-box reveal">
-                <h3>Databases</h3>
-                <p>MySQL MongoDB</p>
+                <h3><i class="fa-solid fa-database"></i> Databases</h3>
+                <div class="skill-tags">
+                    <span class="tag">MySQL</span>
+                    <span class="tag">MongoDB</span>
+                </div>
             </div>
 
             <div class="skill-box reveal">
-                <h3>Tools</h3>
-                <p>Git Linux VSCode</p>
+                <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools</h3>
+                <div class="skill-tags">
+                    <span class="tag">Git</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">VSCode</span>
+                </div>
             </div>
         </div>
     </section>
@@ -72,10 +107,10 @@
     <section class="fun-facts">
         <h2 class="section-title reveal"><span>#</span>my-fun-facts</h2>
         <div class="facts reveal">
-            <span>I enjoy badminton</span>
-            <span>I like to read</span>
-            <span>I like Formula 1</span>
-            <span>I enjoy learning new tech</span>
+            <span><i class="fa-solid fa-circle-play"></i> I enjoy badminton</span>
+            <span><i class="fa-solid fa-book-open"></i> I like to read</span>
+            <span><i class="fa-solid fa-flag-checkered"></i> I like Formula 1</span>
+            <span><i class="fa-solid fa-bolt"></i> I enjoy learning new tech</span>
         </div>
     </section>
 
@@ -91,4 +126,5 @@
 
     <script src="index..js"></script>
 </body>
+
 </html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ASL Recognition Study</title>
+    <link rel="stylesheet" href="index_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="page-transition-overlay"></div>
+    <canvas id="particleCanvas"></canvas>
+    <!-- Header -->
+    <header class="header">
+        <p class="logo">.</p>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="projects.html">projects</a></li>
+                <li><a href="aboutme.html">about me</a></li>
+                <li><a href="resume.html">resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="project-detail reveal">
+        <a href="projects.html" class="back-btn">← Back to Projects</a>
+
+        <h1>🤟 ASL Gesture Recognition — Comparative ML/DL Study</h1>
+
+        <p>
+            An automated American Sign Language (ASL) gesture recognition system that classifies 10 predefined ASL words
+            from dynamic video inputs.
+            This project features a comparative analysis of classical Machine Learning and Deep Learning architectures
+            trained on a custom-recorded video dataset.
+        </p>
+
+        <h2>Tech Stack</h2>
+        <div class="tech-stack-container">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">PyTorch</span>
+            <span class="tech-tag">MediaPipe</span>
+            <span class="tech-tag">OpenCV</span>
+            <span class="tech-tag">Scikit-learn</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">NumPy</span>
+            <span class="tech-tag">Matplotlib</span>
+            <span class="tech-tag">Seaborn</span>
+        </div>
+
+        <h2>Model Comparisons & Performance</h2>
+        <p style="margin-bottom: 1rem;">
+            Four models were developed, trained, and evaluated using k-fold cross-validation on accuracy, precision,
+            recall, and F1-score:
+        </p>
+        <ul>
+            <li><i class="fa-solid fa-circle-check"></i> <strong>🥇 1D CNN (97.0% Accuracy / 0.97 F1-Score):</strong>
+                Best performing model. Treats the hand landmark sequence as a 1D signal. Captures local spatial shape
+                patterns extremely well across gesture frames.</li>
+            <li><i class="fa-solid fa-circle-check"></i> <strong>🥈 CNN + LSTM Hybrid (95.0% Accuracy / 0.95
+                    F1-Score):</strong> Linear feature extractor compresses frame landmarks into 128-d vectors, which
+                are then classified by an LSTM.</li>
+            <li><i class="fa-solid fa-circle-check"></i> <strong>🥉 BiLSTM + Attention (89.9% Accuracy / 0.90
+                    F1-Score):</strong> Processes sequential frames bidirectionally, applying attention weights to
+                highlight critical keyframes.</li>
+            <li><i class="fa-solid fa-circle-check"></i> <strong>4th RandomForest (88.1% Accuracy / 0.965
+                    F1-Score):</strong> Traditional ML baseline. Achieved high precision but lower overall accuracy due
+                to a lack of temporal modeling.</li>
+        </ul>
+        <p style="margin-top: 10px; font-style: italic;">
+            <strong>Key Finding:</strong> The 1D CNN outperformed all sequential models because ASL gestures in this
+            dataset are differentiated more by the spatial hand shapes than by complex motion patterns over time.
+        </p>
+
+        <h2>Key Features</h2>
+        <ul>
+            <li><i class="fa-solid fa-circle-check"></i> <strong>Custom Video Dataset:</strong> Built a dataset of 100
+                videos (10 per class) covering 10 distinct ASL words (Airplane, Bad, Child, Drink, Drop, Sit, Stop,
+                Teacher, Why, Yes) under controlled environment lighting and camera angles.</li>
+            <li><i class="fa-solid fa-circle-check"></i> <strong>Landmark Preprocessing:</strong> Uses MediaPipe Hand
+                Landmarker to extract 21 3D coordinates (126 total values per frame for both hands), avoiding raw pixel
+                processing to keep models highly lightweight and robust to lighting/background variation.</li>
+            <li><i class="fa-solid fa-circle-check"></i> <strong>Exploratory Data Analysis (EDA):</strong> Diagnostic
+                scripts to check video characteristics (duration, frame brightness, wrist movements) and generate
+                comparative plots.</li>
+        </ul>
+
+        <h2>Challenges</h2>
+        <p>
+            Designing a robust pipeline that normalizes hand coordinates regardless of the user's distance from the
+            camera or their hand size.
+            Managing temporal sequence padding for variable-length video files while preventing neural network
+            overfitting on a custom dataset required careful dropout tuning (0.3 - 0.4) and Xavier weight
+            initialization.
+        </p>
+
+        <h2>What I Learned</h2>
+        <p>
+            Deepened my expertise in comparing machine learning baselines to deep convolutional and recurrent
+            architectures in PyTorch.
+            Gained practical experience in computer vision pipeline design by extracting spatial landmarks with
+            MediaPipe to simplify down-stream deep learning models.
+        </p>
+
+        <div class="project-links reveal">
+            <a href="https://github.com/IppiliSahasra08/ASL_detection" target="_blank">
+                View Code
+            </a>
+        </div>
+    </section>
+
+    <script src="index..js"></script>
+</body>
+
+</html>

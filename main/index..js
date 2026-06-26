@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. TRACK MOUSE (Glow + Custom Dot)
     window.addEventListener('mousemove', (e) => {
         if (dot.style.opacity !== "1") dot.style.opacity = "1";
-        
+
         const posX = e.clientX;
         const posY = e.clientY;
 
@@ -36,20 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     handleHover();
 
-    // 4. SCROLL REVEAL (The part that was missing!)
+    // 4. SCROLL REVEAL (Trigger once to prevent layout bounce/thrashing)
     if ('IntersectionObserver' in window) {
-        const revealCallback = (entries) => {
+        const revealCallback = (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                } else {
-                    entry.target.classList.remove('active');
+                    observer.unobserve(entry.target); // Stop observing once revealed!
                 }
             });
         };
 
         const revealObserver = new IntersectionObserver(revealCallback, {
-            threshold: 0.15 
+            threshold: 0.15
         });
 
         const revealElements = document.querySelectorAll('.reveal');
@@ -101,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.beginPath();
                 ctx.arc(this.x, currentY, this.size, 0, Math.PI * 2);
                 ctx.fill();
-                this.vY = currentY; 
+                this.vY = currentY;
             }
         }
 
@@ -133,4 +132,37 @@ document.addEventListener('DOMContentLoaded', () => {
         init();
         animate();
     }
+
+
+    // --- Page Transition Logic ---
+    const overlay = document.getElementById('page-transition-overlay');
+
+    // A. When page loads: Fade the black overlay OUT
+    if (overlay) {
+        // Small timeout ensures the browser has started rendering
+        setTimeout(() => {
+            overlay.classList.add('fade-out-overlay');
+        }, 100);
+    }
+
+    // B. When a link is clicked: Fade the black overlay IN
+    const links = document.querySelectorAll('a');
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+
+            // Don't trigger for external links, anchor tags (#), or target="_blank"
+            if (href && !href.startsWith('#') && !link.target && !href.includes('mailto:')) {
+                e.preventDefault(); // Stop the immediate jump
+
+                overlay.classList.remove('fade-out-overlay');
+                overlay.classList.add('fade-in-overlay');
+
+                // Wait for the animation (500ms) then change the page
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            }
+        });
+    });
 });

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Resume | Deeksha Chowdary</title>
+    <link rel="stylesheet" href="index_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Interactive Resume Layout Styles */
+        .resume-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2.5rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 2rem;
+        }
+
+        .resume-left-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .resume-right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .resume-section {
+            background: rgba(36, 40, 48, 0.2);
+            border: 1px solid rgba(58, 63, 75, 0.4);
+            border-radius: 8px;
+            padding: 1.5rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .resume-section h2 {
+            font-size: 1.25rem;
+            color: #c579ff;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(197, 121, 255, 0.2);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resume-section h2 span {
+            color: #c579ff;
+        }
+
+        /* Contact Details list */
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .contact-list li {
+            font-size: 0.85rem;
+            color: #b5b5b5;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-list li i {
+            color: #c579ff;
+            width: 16px;
+            text-align: center;
+        }
+
+        .contact-list li a {
+            color: #b5b5b5;
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .contact-list li a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Skills block layout */
+        .skills-summary-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .skills-summary-group h3 {
+            font-size: 0.9rem;
+            color: white;
+            margin-bottom: 0.4rem;
+        }
+
+        .skills-summary-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .resume-tag {
+            font-size: 0.7rem;
+            background: rgba(197, 121, 255, 0.08);
+            color: #c579ff;
+            border: 1px solid rgba(197, 121, 255, 0.2);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* Education & Projects lists */
+        .timeline-item {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid rgba(197, 121, 255, 0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #0f0f0f;
+            border: 2px solid #c579ff;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            color: #c579ff;
+        }
+
+        .timeline-subtitle {
+            font-size: 0.8rem;
+            color: #b5b5b5;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: #b5b5b5;
+            list-style-type: square;
+            margin-left: 1.1rem;
+        }
+
+        .timeline-desc li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Mobile layout styling */
+        @media (max-width: 768px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Print Media Stylesheet */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 11pt !important;
+            }
+
+            #particleCanvas,
+            .header,
+            .footer,
+            .download-btn,
+            #page-transition-overlay,
+            .custom-dot,
+            .cursor-dot,
+            .cursor-outline {
+                display: none !important;
+            }
+
+            .resume-page-container {
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .resume-container {
+                display: grid !important;
+                grid-template-columns: 1fr 2fr !important;
+                gap: 1.5in !important;
+                border-top: none !important;
+                padding-top: 0 !important;
+            }
+
+            .resume-section {
+                border: none !important;
+                background: none !important;
+                padding: 0 !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .resume-section h2 {
+                color: black !important;
+                border-bottom: 1px solid #333 !important;
+                font-size: 12pt !important;
+            }
+
+            .resume-section h2 span {
+                color: black !important;
+            }
+
+            .timeline-title {
+                color: black !important;
+                font-size: 11pt !important;
+            }
+
+            .timeline-date {
+                color: #555 !important;
+            }
+
+            .timeline-subtitle {
+                color: #555 !important;
+            }
+
+            .timeline-desc {
+                color: #333 !important;
+            }
+
+            .contact-list li,
+            .contact-list li a {
+                color: black !important;
+            }
+
+            .resume-tag {
+                background: none !important;
+                border: 1px solid #666 !important;
+                color: black !important;
+            }
+
+            .skills-summary-group h3 {
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page-transition-overlay"></div>
+    <canvas id="particleCanvas"></canvas>
+
+    <header class="header">
+        <p class="logo">.</p>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="projects.html">projects</a></li>
+                <li><a href="aboutme.html">about me</a></li>
+                <li><a href="resume.html">resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="resume-page-container reveal">
+        <div class="resume-header">
+            <h1 class="page-title"><span>/</span>resume</h1>
+            <!-- Interactive Print Button for export to PDF -->
+            <a href="javascript:void(0)" onclick="window.print()" class="download-btn">
+                <i class="fa-solid fa-print"></i> Print / Save PDF
+            </a>
+        </div>
+
+        <div class="resume-container">
+            <!-- Left Column: Contact, Education, Skills -->
+            <div class="resume-left-col">
+                <!-- Contact info -->
+                <div class="resume-section">
+                    <h2><span>#</span>contact</h2>
+                    <ul class="contact-list">
+                        <li><i class="fa-solid fa-envelope"></i> <a
+                                href="mailto:deekshachowdaryd@gmail.com">deekshachowdaryd@gmail.com</a></li>
+                        <li><i class="fa-solid fa-location-dot"></i> Bangalore, India</li>
+                        <li><i class="fa-brands fa-github"></i> <a href="https://github.com/deekshachowdaryd"
+                                target="_blank">github.com/deekshachowdaryd</a></li>
+                        <li><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com"
+                                target="_blank">linkedin.com/in/deeksha-chowdary</a></li>
+                    </ul>
+                </div>
+
+                <!-- Education info -->
+                <div class="resume-section">
+                    <h2><span>#</span>education</h2>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">B.Tech Computer Science</span>
+                            <span class="timeline-date">2024 - Present</span>
+                        </div>
+                        <div class="timeline-subtitle">Vellore Institute of Technology</div>
+                        <ul class="timeline-desc" style="font-size:0.75rem; list-style-type: none; margin-left: 0;">
+                            <li>Focus: Software Engineering & Data Systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Skills summary tags -->
+                <div class="resume-section">
+                    <h2><span>#</span>skills</h2>
+                    <div class="skills-summary-group">
+                        <div>
+                            <h3>Languages</h3>
+                            <div class="skills-summary-tags">
+                                <span class="resume-tag">Python</span>
+                                <span class="resume-tag">JavaScript</span>
+                                <span class="resume-tag">C / C++</span>
+                                <span class="resume-tag">SQL</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Web Dev</h3>
+                            <div class="skills-summary-tags">
+                                <span class="resume-tag">HTML5</span>
+                                <span class="resume-tag">CSS3</span>
+                                <span class="resume-tag">React</span>
+                                <span class="resume-tag">Node.js</span>
+                                <span class="resume-tag">Express</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Databases</h3>
+                            <div class="skills-summary-tags">
+                                <span class="resume-tag">MySQL</span>
+                                <span class="resume-tag">MongoDB</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Tools & frameworks</h3>
+                            <div class="skills-summary-tags">
+                                <span class="resume-tag">PyTorch</span>
+                                <span class="resume-tag">MediaPipe</span>
+                                <span class="resume-tag">OpenCV</span>
+                                <span class="resume-tag">Git</span>
+                                <span class="resume-tag">Linux</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Projects/Experience -->
+            <div class="resume-container-right resume-right-col">
+                <div class="resume-section">
+                    <h2><span>#</span>profile</h2>
+                    <p style="font-size: 0.9rem; color: #b5b5b5; line-height: 1.6;">
+                        Aspiring software developer with hands-on experience in full-stack web application development
+                        and machine learning pipelines.
+                        Enthusiastic about translating spatial/computer vision keypoints into lightweight architectures,
+                        automating desktop processes, and constructing clean APIs.
+                    </p>
+                </div>
+
+                <div class="resume-section">
+                    <h2><span>#</span>academic-projects</h2>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">ASL Gesture Recognition Study</span>
+                            <span class="timeline-date">2026</span>
+                        </div>
+                        <div class="timeline-subtitle">Computer Vision & Deep Learning</div>
+                        <ul class="timeline-desc">
+                            <li>Built a classification study using PyTorch, comparing 1D CNN, BiLSTM with Attention,
+                                CNN+LSTM, and Random Forest models on a custom-recorded video dataset.</li>
+                            <li>Implemented MediaPipe Hand Landmarker to extract 126 coordinate features per frame,
+                                eliminating lighting/background noise.</li>
+                            <li>Achieved a peak classification accuracy of <strong>97.0%</strong> using the 1D CNN
+                                model.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">Cloud Image Upload Service</span>
+                            <span class="timeline-date">2025</span>
+                        </div>
+                        <div class="timeline-subtitle">Full-Stack Development</div>
+                        <ul class="timeline-desc">
+                            <li>Designed a clean client-server architecture using React on the frontend and
+                                Node.js/Express on the backend.</li>
+                            <li>Integrated the ImageKit API for high-performance cloud storage and image CDN management.
+                            </li>
+                            <li>Structured API services using Axios to ensure responsive request-response cycles.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">Pharmacy Database Management System</span>
+                            <span class="timeline-date">2026</span>
+                        </div>
+                        <div class="timeline-subtitle">Desktop Application & Database Administration</div>
+                        <ul class="timeline-desc">
+                            <li>Built a desktop record management application using Python (Tkinter) and MySQL.</li>
+                            <li>Configured safe database connections via environment variables with python-dotenv.</li>
+                            <li>Created structured relational tables for medicines, staff shifts, and customers,
+                                implementing custom validation guards on inputs.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">F1 Race Outcome Predictor</span>
+                            <span class="timeline-date">2025</span>
+                        </div>
+                        <div class="timeline-subtitle">Machine Learning & Data Analysis</div>
+                        <ul class="timeline-desc">
+                            <li>Developed a prediction system using Scikit-learn (Gradient Boosting) to forecast race
+                                outcomes based on historical F1 performance metrics.</li>
+                            <li>Integrated FastF1 API for live telemetry tracking, parsing large constructor/driver
+                                datasets with Pandas and NumPy.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p class="footer-name">© 2026 Deeksha Chowdary</p>
+    </footer>
+
+    <script src="index..js"></script>
+</body>
+
+</html>

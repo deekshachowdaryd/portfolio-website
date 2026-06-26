@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Projects | Deeksha Chowdary</title>
 
     <link rel="stylesheet" href="projects_styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
 
 <body>
+    <div id="page-transition-overlay"></div>
     <canvas id="particleCanvas"></canvas>
     <!-- Header -->
     <header class="header">
@@ -18,7 +21,7 @@
                 <li><a href="index.html">home</a></li>
                 <li><a href="projects.html">projects</a></li>
                 <li><a href="aboutme.html">about me</a></li>
-                <li><a href="#">resume</a></li>
+                <li><a href="resume.html">resume</a></li>
             </ul>
         </nav>
     </header>
@@ -33,46 +36,85 @@
         <div class="projects-grid">
 
             <div class="project-box reveal">
-                <p class="tags">React Node.js MongoDB</p>
-                <h3>Cloud Service</h3>
+                <div class="project-tags">
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">REST APIs</span>
+                </div>
+                <h3><i class="fa-solid fa-cloud-arrow-up"></i> Cloud Service</h3>
                 <p>Full-stack image upload system with API integration.</p>
 
                 <div class="buttons">
-                    <a href="cloud_service_project.html">View</a>
-                    <a href="https://github.com/deekshachowdaryd/cloud-service-project" target="_blank">GitHub</a>
+                    <a href="cloud_service_project.html"><i class="fa-regular fa-eye"></i> View</a>
+                    <a href="https://github.com/deekshachowdaryd/cloud-service-project" target="_blank"><i
+                            class="fa-brands fa-github"></i> GitHub</a>
                 </div>
             </div>
 
             <div class="project-box reveal">
-                <p class="tags">Python ML</p>
-                <h3>F1 Predictor</h3>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">ML</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Scikit-learn</span>
+                </div>
+                <h3><i class="fa-solid fa-flag-checkered"></i> F1 Predictor</h3>
                 <p>Predicts race results using historical F1 data.</p>
 
                 <div class="buttons">
-                    <a href="project-race.html">View</a>
-                    <a href="https://github.com/deekshachowdaryd/race-predictor" target="_blank">GitHub</a>
+                    <a href="project-race.html"><i class="fa-regular fa-eye"></i> View</a>
+                    <a href="https://github.com/deekshachowdaryd/race-predictor" target="_blank"><i
+                            class="fa-brands fa-github"></i> GitHub</a>
                 </div>
             </div>
 
             <div class="project-box reveal">
-                <p class="tags">HTML CSS</p>
-                <h3>Portfolio</h3>
+                <div class="project-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Responsive</span>
+                </div>
+                <h3><i class="fa-solid fa-window-restore"></i> Portfolio</h3>
                 <p>Responsive personal developer portfolio.</p>
 
                 <div class="buttons">
-                    <a href="project-protfolio.html">View</a>
-                    <a href="https://github.com/deekshachowdaryd/portfolio-website" target="_blank">GitHub</a>
+                    <a href="project-protfolio.html"><i class="fa-regular fa-eye"></i> View</a>
+                    <a href="https://github.com/deekshachowdaryd/portfolio-website" target="_blank"><i
+                            class="fa-brands fa-github"></i> GitHub</a>
                 </div>
             </div>
 
             <div class="project-box reveal">
-                <p class="tags">Python Tkinter MySQL</p>
-                <h3>Pharmacy DBMS</h3>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Tkinter</span>
+                    <span class="tag">MySQL</span>
+                </div>
+                <h3><i class="fa-solid fa-prescription-bottle-medical"></i> Pharmacy DBMS</h3>
                 <p>Desktop system for managing pharmacy records.</p>
 
                 <div class="buttons">
-                    <a href="project-pharmacy.html">View</a>
-                    <a href="#">GitHub</a>
+                    <a href="project-pharmacy.html"><i class="fa-regular fa-eye"></i> View</a>
+                    <a href="https://github.com/deekshachowdaryd/pharmacy-database-management" target="_blank"><i
+                            class="fa-brands fa-github"></i> GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-box reveal">
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">MediaPipe</span>
+                    <span class="tag">OpenCV</span>
+                </div>
+                <h3><i class="fa-solid fa-hand-lizard"></i> ASL Recognition</h3>
+                <p>Comparative ML/DL study evaluating CNN, LSTM, and RF models on a custom gesture dataset.</p>
+
+                <div class="buttons">
+                    <a href="project-asl.html"><i class="fa-regular fa-eye"></i> View</a>
+                    <a href="https://github.com/IppiliSahasra08/ASL_detection" target="_blank"><i
+                            class="fa-brands fa-github"></i> GitHub</a>
                 </div>
             </div>
 
@@ -85,6 +127,7 @@
         </div>
     </footer>
 
-    <script src="index..js"></script> 
+    <script src="index..js"></script>
 </body>
+
 </html>

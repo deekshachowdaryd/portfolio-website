@@ -170,62 +170,130 @@ body {
 /* ---------- Projects Grid ---------- */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
 }
 
 .project-box {
-    border: 1px solid #3a3f4b;
-    padding: 0; /* Remove padding to allow tags to sit at top */
-    background: rgba(36, 40, 48, 0.2);
+    border: 1px solid rgba(58, 63, 75, 0.6);
+    background: rgba(24, 28, 37, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
-    transition: 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+    position: relative;
+}
+
+.project-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--purple), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .project-box:hover {
-    border-color: var(--purple);
-    transform: translateY(-5px);
+    border-color: rgba(197, 121, 255, 0.5);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(197, 121, 255, 0.15);
 }
 
-.tags {
-    padding: 0.5rem 1rem;
-    border-bottom: 1px solid #3a3f4b;
-    font-size: 0.75rem;
-    color: var(--text-dim);
+.project-box:hover::before {
+    opacity: 1;
+}
+
+.project-tags {
+    padding: 1rem 1.2rem 0.6rem;
+    border-bottom: 1px solid rgba(58, 63, 75, 0.3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    font-size: 0.68rem;
+    background: rgba(197, 121, 255, 0.08);
+    color: var(--purple);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid rgba(197, 121, 255, 0.2);
+    font-weight: 500;
 }
 
 .project-box h3 {
-    padding: 1rem 1rem 0.5rem;
-    font-size: 1.2rem;
+    padding: 1.2rem 1.2rem 0.5rem;
+    font-size: 1.3rem;
     color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.project-box h3 i {
+    color: var(--purple);
+    font-size: 1.15rem;
 }
 
 .project-box p:not(.tags) {
-    padding: 0 1rem 1.5rem;
+    padding: 0 1.2rem 1.5rem;
     color: var(--text-dim);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
 }
 
 .buttons {
-    padding: 1rem;
+    padding: 1.2rem;
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem;
     margin-top: auto;
+    border-top: 1px solid rgba(58, 63, 75, 0.2);
+    background: rgba(15, 15, 15, 0.2);
 }
 
 .buttons a {
     text-decoration: none;
-    color: var(--purple);
-    border: 1px solid var(--purple);
-    padding: 0.4rem 1rem;
+    padding: 0.5rem 1.2rem;
     font-size: 0.8rem;
-    transition: 0.3s;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 500;
+    flex: 1;
 }
 
-.buttons a:hover {
+/* View Button */
+.buttons a:first-child {
+    border: 1px solid var(--purple);
+    color: var(--purple);
+    background: transparent;
+}
+
+.buttons a:first-child:hover {
     background: var(--purple);
     color: #0f0f0f;
+    box-shadow: 0 0 12px rgba(197, 121, 255, 0.35);
+}
+
+/* GitHub Button */
+.buttons a:last-child {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.buttons a:last-child:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* --- Footer --- */
@@ -234,4 +302,27 @@ body {
     background: transparent !important;
     text-align: center;
     border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+#page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0f0f0f; /* Matches your background */
+    z-index: 20000; /* Higher than everything else */
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1; /* Starts fully visible */
+}
+
+/* Class to fade the overlay out */
+.fade-out-overlay {
+    opacity: 0 !important;
+}
+
+/* Class to fade the overlay in (for leaving) */
+.fade-in-overlay {
+    opacity: 1 !important;
 }

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pharmacy DBMS</title>
+    <link rel="stylesheet" href="index_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="page-transition-overlay"></div>
+    <canvas id="particleCanvas"></canvas>
+    <!-- Header -->
+    <header class="header">
+        <p class="logo">.</p>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="projects.html">projects</a></li>
+                <li><a href="aboutme.html">about me</a></li>
+                <li><a href="resume.html">resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="project-detail reveal">
+        <a href="projects.html" class="back-btn">← Back to Projects</a>
+
+        <h1>Pharmacy Database Management System</h1>
+
+        <p>
+            A desktop database management application designed to streamline pharmacy operations.
+            The system manages medicine records, tracks real-time inventory, and handles basic billing operations
+            through a GUI client.
+        </p>
+
+        <h2>Tech Stack</h2>
+        <div class="tech-stack-container">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Tkinter</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">python-dotenv</span>
+        </div>
+
+        <h2>Key Features</h2>
+        <ul>
+            <li><i class="fa-solid fa-circle-check"></i> <strong>Desktop Interface:</strong> Intuitive GUI built with
+                Tkinter for staff and administrators to interact with medicine records.</li>
+            <li><i class="fa-solid fa-circle-check"></i> <strong>Inventory Management:</strong> Track manufacturing
+                dates, expiration dates, lot numbers, manufacturer information, and pricing for all inventory.</li>
+            <li><i class="fa-solid fa-circle-check"></i> <strong>Persistent SQL Database:</strong> Powered by MySQL with
+                direct connections managed via <code>mysql-connector</code>.</li>
+            <li><i class="fa-solid fa-circle-check"></i> <strong>CRUD Operations:</strong> Full capability to add new
+                medicines, update existing records, search current stock, and remove records directly through the
+                interface.</li>
+            <li><i class="fa-solid fa-circle-check"></i> <strong>Tabular View:</strong> Interactive
+                <code>ttk.Treeview</code> displaying real-time database query results with functional scrollbar
+                adjustments.</li>
+            <li><i class="fa-solid fa-circle-check"></i> <strong>Secure Configuration:</strong> Utilizes
+                <code>python-dotenv</code> to keep sensitive database credentials out of code repositories.</li>
+        </ul>
+
+        <h2>Challenges</h2>
+        <p>
+            One of the primary challenges was synchronizing the GUI state in Tkinter with the active relational tables
+            in MySQL.
+            Ensuring input validations (such as preventing duplicate primary key Reference Numbers and verifying
+            positive integer values for stock units)
+            required robust validation layers and clear error dialog integration.
+        </p>
+
+        <h2>What I Learned</h2>
+        <p>
+            This project enhanced my understanding of GUI-to-database integration. I learned how to connect Python
+            desktops to SQL servers,
+            design functional tables for relational databases, build database transaction layers, and manage application
+            configurations using environmental variables.
+        </p>
+
+        <div class="project-links reveal">
+            <a href="https://github.com/deekshachowdaryd/pharmacy-database-management" target="_blank">
+                View Code
+            </a>
+        </div>
+    </section>
+
+    <script src="index..js"></script>
+</body>
+
+</html>

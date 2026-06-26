@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Deeksha Chowdary</title>
@@ -11,13 +12,14 @@
 </head>
 
 <body>
+    <div id="page-transition-overlay"></div>
     <canvas id="particleCanvas"></canvas>
     <!-- Sidebar -->
     <div class="side-bar">
         <div class="line"></div>
         <div class="icons">
-            <a href="#"><i class="fa-brands fa-github"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/deekshachowdaryd" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
         </div>
     </div>
 
@@ -26,10 +28,10 @@
         <p class="logo">.</p>
         <nav class="nav">
             <ul>
-                <li><a href="#">home</a></li>
+                <li><a href="index.html">home</a></li>
                 <li><a href="projects.html">projects</a></li>
                 <li><a href="aboutme.html">about me</a></li>
-                <li><a href="#">resume</a></li>
+                <li><a href="resume.html">resume</a></li>
             </ul>
         </nav>
     </header>
@@ -37,7 +39,7 @@
     <!-- Hero -->
     <main>
         <div class="text">
-            <h1 class="name reveal">Hi, Im Deeksha</h1>
+            <h1 class="name reveal">Hi, I'm Deeksha</h1>
 
             <p class="upper_txt reveal">
                 <span class="purple">I like starting things I’m not fully ready for</span>
@@ -63,87 +65,119 @@
         <section class="project-cards">
             <article class="project-card reveal">
                 <a href="cloud_service_project.html" class="project-link">
-                <figure class="project-card__preview">
-                    <img src="cloud_project.png" alt="portfolio project preview">
-                </figure>
+                    <figure class="project-card__preview">
+                        <img src="cloud_project.png" alt="portfolio project preview">
+                    </figure>
 
-                <!-- Title + description -->
-                <header class="project-card__content">
-                    <h3 class="project-card__title">portfolio Website</h3>
-                    <p class="project-card__desc">A clean, responsive personal portfolio built with pure HTML and CSS.</p>
-                </header>
+                    <!-- Title + description -->
+                    <header class="project-card__content">
+                        <h3 class="project-card__title"><i class="fa-solid fa-cloud-arrow-up"></i> Cloud Service Website
+                        </h3>
+                        <p class="project-card__desc">A scalable cloud-based service designed to handle data
+                            efficiently, with a focus on performance, reliability, and clean backend architecture.</p>
+                    </header>
 
-                
-                <!-- Tech stack strip -->
-                <div class="project-card__stack">
-                    HTML · CSS 
-                </div>
-            </a>
+
+                    <!-- Tech stack strip -->
+                    <div class="project-card__stack">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Express</span>
+                    </div>
+                </a>
             </article>
 
             <article class="project-card reveal">
                 <a href="project-race.html" class="project-link">
-                <figure class="project-card__preview">
-                    <img src="f1_project.png" alt="portfolio project preview">
-                </figure>
+                    <figure class="project-card__preview">
+                        <img src="f1_project.png" alt="portfolio project preview">
+                    </figure>
 
-                <!-- Title + description -->
-                <header class="project-card__content">
-                    <h3 class="project-card__title">portfolio Website</h3>
-                    <p class="project-card__desc">A clean, responsive personal portfolio built with pure HTML and CSS.</p>
-                </header>
+                    <!-- Title + description -->
+                    <header class="project-card__content">
+                        <h3 class="project-card__title"><i class="fa-solid fa-flag-checkered"></i> Race Prediction Model
+                        </h3>
+                        <p class="project-card__desc">A data-driven race prediction platform that analyzes performance
+                            metrics to generate insights and forecast outcomes.</p>
+                    </header>
 
-                
-                <!-- Tech stack strip -->
-                <div class="project-card__stack">
-                    HTML · CSS 
-                </div>
-            </a>
+
+                    <!-- Tech stack strip -->
+                    <div class="project-card__stack">
+                        <span class="tag">Python</span>
+                        <span class="tag">ML</span>
+                    </div>
+                </a>
             </article>
 
             <article class="project-card reveal">
                 <a href="project-protfolio.html" class="project-link">
-                <figure class="project-card__preview">
-                    <img src="project.png" alt="portfolio project preview">
-                </figure>
+                    <figure class="project-card__preview">
+                        <img src="project.png" alt="portfolio project preview">
+                    </figure>
 
-                <!-- Title + description -->
-                <header class="project-card__content">
-                    <h3 class="project-card__title">portfolio Website</h3>
-                    <p class="project-card__desc">A clean, responsive personal portfolio built with pure HTML and CSS.</p>
-                </header>
+                    <!-- Title + description -->
+                    <header class="project-card__content">
+                        <h3 class="project-card__title"><i class="fa-solid fa-window-restore"></i> Portfolio Website
+                        </h3>
+                        <p class="project-card__desc">A clean, responsive personal portfolio built with pure HTML and
+                            CSS.</p>
+                    </header>
 
-                
-                <!-- Tech stack strip -->
-                <div class="project-card__stack">
-                    HTML · CSS 
-                </div>
-            </a>
+
+                    <!-- Tech stack strip -->
+                    <div class="project-card__stack">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                    </div>
+                </a>
             </article>
         </section>
     </section>
 
-    <!-- Skills -->
-    <section class="projects">
+    <!-- Summary -->
+    <section class="projects reveal">
         <div class="projects-header">
             <p class="project_title">
                 <span class="purple">#</span>summary
             </p>
         </div>
 
-        <p></p>
-    </section>
+        <div class="summary-container">
+            <div class="summary-content">
+                <p>
+                    I am a developer who thrives on the "learn-as-you-go" philosophy.
+                    Whether it's building scalable web apps or experimenting with
+                    machine learning, I focus on writing clean code that solves
+                    real-world problems.
+                </p>
+                <p>
+                    Currently based in <span class="purple">Bangalore</span>, I'm
+                    constantly exploring the intersection of design and functionality.
+                    When I'm not coding, you'll probably find me researching
+                    motorcycles or diving into advanced physics.
+                </p>
+            </div>
 
+            <div class="status-box">
+                <p><span class="purple">Status:</span> Open to collaboration</p>
+                <p><span class="purple">Focus:</span> Full-stack & ML</p>
+                <p><span class="purple">Current:</span> Portfolio v2.0</p>
+            </div>
+        </div>
+    </section>
     <!-- footer -->
     <footer class="footer">
         <div class="footer-content">
             <p class="footer-name">© 2026 Deeksha Chowdary</p>
             <div class="footer-socials">
-                <a href="#"><i class="fa-brands fa-github"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/deekshachowdaryd" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
             </div>
         </div>
     </footer>
 
 </body>
+
 </html>

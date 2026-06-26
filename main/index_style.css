@@ -172,19 +172,22 @@ main {
     color: white;
     margin-bottom: 1.5rem;
     letter-spacing: 1px;
+    text-shadow: 0 0 25px rgba(197, 121, 255, 0.25);
 }
 
 /* Main headline */
 .upper_txt {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
     line-height: 1.6;
     margin-bottom: 1.5rem;
     color: white;
+    border-left: 3px solid #c579ff;
+    padding-left: 1.2rem;
 }
 
 /* Sub text */
 .lower_txt {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: rgb(181, 181, 181);
 }
 
@@ -240,27 +243,51 @@ main {
 
 .project-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .project-card {
-    border: 1.5px solid #3a3f4b;
-    background-color: #242830;
+    border: 1px solid rgba(58, 63, 75, 0.6);
+    background: rgba(24, 28, 37, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.25s ease, border-color 0.25s ease;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #c579ff, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-6px);
-    border-color: #c579ff;
+    border-color: rgba(197, 121, 255, 0.5);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(197, 121, 255, 0.15);
 }
 
+.project-card:hover::before {
+    opacity: 1;
+}
 
 .project-card__preview {
     width: 100%;
-    height: 170px;
+    height: 160px;
     overflow: hidden;
 }
 
@@ -268,33 +295,57 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-bottom: 1px solid #3a3f4b;
+    border-bottom: 1px solid rgba(58, 63, 75, 0.3);
+    transition: transform 0.5s ease;
 }
 
+.project-card:hover .project-card__preview img {
+    transform: scale(1.05);
+}
 
 .project-card__content {
-    padding: 1rem;
+    padding: 1.2rem;
 }
 
 .project-card__title {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     margin-bottom: 0.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-card__title i {
+    color: #c579ff;
+    font-size: 1.05rem;
 }
 
 .project-card__desc {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: #b5b5b5;
+    line-height: 1.5;
 }
-
 
 .project-card__stack {
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
-    border-top: 1px solid #3a3f4b;
+    padding: 0.8rem 1.2rem;
+    border-top: 1px solid rgba(58, 63, 75, 0.2);
     color: #b5b5b5;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    background: rgba(15, 15, 15, 0.15);
 }
 
-
+.tag {
+    font-size: 0.65rem;
+    background: rgba(197, 121, 255, 0.08);
+    color: #c579ff;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid rgba(197, 121, 255, 0.2);
+    font-family: 'Space Mono', monospace;
+}
 
 .project-link {
     display: flex;
@@ -380,75 +431,58 @@ main {
 
 
 
-.project-cards {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: flex-start;
-  flex-wrap: wrap;              
-  margin-top: 2rem;
+/* ---------- Summary & Status Section ---------- */
+.summary-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    align-items: start;
 }
 
-.project-card {
-  flex: 1 1 300px;              
-  max-width: 31%;               
-  border: 1.5px solid #3a3f4b;
-  color: white;
-  background-color: #242830;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10%;
+.summary-content p {
+    color: #b5b5b5;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    font-size: 0.98rem;
 }
 
-
-.project-card__preview {
-  width: 100%;
-  height: 160px;
-  overflow: hidden;
-  border-radius: 17%;
+.status-box {
+    border: 1px solid rgba(58, 63, 75, 0.6);
+    background: rgba(24, 28, 37, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
 }
 
-
-.project-card__preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-bottom: 1px solid #3a3f4b;;
+.status-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: #c579ff;
 }
 
-
-.project-card__content {
-  padding: 1rem;
-}
-
-.project-card__title {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.project-card__desc {
-  font-size: 0.85rem;
-  color: rgb(181, 181, 181);
-}
-
-
-.project-card__stack {
-  padding: 0.6rem 1rem;
-  font-size: 0.75rem;
-  border-top: 1px solid #3a3f4b;
-  color: rgb(181, 181, 181);
+.status-box p {
+    font-size: 0.9rem;
+    color: #b5b5b5;
+    margin: 0;
 }
 
 @media (max-width: 768px) {
-  .project-card {
-    max-width: 100%;
-  }
-}
-
-
-@media (max-width: 987px) {
-  .project-card {
-    max-width: 100%;
-  }
+    .summary-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 }
 
 /* ---------- Footer ---------- */
@@ -513,63 +547,124 @@ main {
 .project-detail {
     max-width: 900px;
     margin: 4rem auto;
-    padding: 0 2rem;
+    padding: 2.5rem;
     color: white;
+    background: rgba(24, 28, 37, 0.45);
+    border: 1px solid rgba(58, 63, 75, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.project-detail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #c579ff, transparent);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
 }
 
 /* Back button */
-.project-detail a {
+.project-detail a:not(.back-btn):not(.project-links a) {
     text-decoration: none;
     color: #c579ff;
     font-size: 0.9rem;
     transition: color 0.25s ease;
 }
 
-.project-detail a:hover {
+.project-detail a:not(.back-btn):not(.project-links a):hover {
     color: #ffffff;
 }
 
 /* Title */
 .project-detail h1 {
-    font-size: 2.5rem;
-    margin: 2rem 0 1rem 0;
+    font-size: 2.3rem;
+    margin: 1.5rem 0 1rem 0;
+    color: white;
+    text-shadow: 0 0 15px rgba(197, 121, 255, 0.15);
 }
 
 /* Section headings */
 .project-detail h2 {
-    margin-top: 2rem;
-    margin-bottom: 0.8rem;
-    font-size: 1.2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
     color: #c579ff;
+    border-bottom: 1px solid rgba(197, 121, 255, 0.15);
+    padding-bottom: 0.4rem;
 }
 
 /* Paragraphs */
 .project-detail p {
     color: #b5b5b5;
-    line-height: 1.6;
+    line-height: 1.7;
     font-size: 0.95rem;
+    margin-bottom: 1rem;
 }
 
 /* Image */
 .project-detail img {
     width: 100%;
-    margin: 1.5rem 0;
-    border: 1px solid #3a3f4b;
+    margin: 2rem 0;
+    border: 1px solid rgba(58, 63, 75, 0.4);
+    border-radius: 8px;
 }
 
-/* List */
+/* List styling */
 .project-detail ul {
-    margin-left: 1.2rem;
-    color: #b5b5b5;
+    margin-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .project-detail li {
-    margin-bottom: 0.5rem;
+    font-size: 0.93rem;
+    color: #b5b5b5;
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+}
+
+.project-detail li i {
+    color: #c579ff;
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+/* Detailed Tech Stack Badges */
+.project-detail .tech-stack-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.project-detail .tech-tag {
+    font-size: 0.72rem;
+    background: rgba(197, 121, 255, 0.08);
+    color: #c579ff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid rgba(197, 121, 255, 0.25);
+    font-weight: 500;
+    font-family: 'Space Mono', monospace;
 }
 
 /* Buttons container */
 .project-links {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     display: flex;
     gap: 1rem;
 }
@@ -577,29 +672,37 @@ main {
 /* Buttons */
 .project-links a {
     border: 1px solid #c579ff;
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.82rem;
     color: #c579ff;
+    text-decoration: none;
+    border-radius: 6px;
     transition: all 0.25s ease;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .project-links a:hover {
     background-color: #c579ff;
     color: #242830;
+    box-shadow: 0 0 15px rgba(197, 121, 255, 0.35);
 }
 
 /* Back button specific */
 .back-btn {
-    text-decoration: none;   /* removes underline */
-    color: #c579ff;
-    font-size: 0.9rem;
-    display: inline-block;
-    margin-bottom: 1rem;
+    text-decoration: none;   
+    color: #b5b5b5 !important;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     transition: color 0.25s ease;
 }
 
 .back-btn:hover {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 
@@ -662,3 +765,75 @@ main {
 
 .project-card:nth-child(2) { transition-delay: 0.1s; }
 .project-card:nth-child(3) { transition-delay: 0.2s; }
+
+#page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0f0f0f; /* Matches your background */
+    z-index: 20000; /* Higher than everything else */
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1; /* Starts fully visible */
+}
+
+/* Class to fade the overlay out */
+.fade-out-overlay {
+    opacity: 0 !important;
+}
+
+/* Class to fade the overlay in (for leaving) */
+.fade-in-overlay {
+    opacity: 1 !important;
+}
+
+
+
+/* --- Resume Page Layout --- */
+.resume-page-container {
+    padding: 4rem 6rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.resume-frame {
+    border: 1px solid var(--border-color);
+    background-color: white; /* Ensures PDF looks standard regardless of theme */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.download-btn {
+    background-color: var(--purple);
+    color: var(--bg-color) !important;
+    padding: 0.7rem 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s ease;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--purple);
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .resume-header {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}
